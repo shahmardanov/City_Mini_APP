@@ -31,11 +31,9 @@ class HomeViewModel @Inject constructor(private val repository: CityRepository) 
             try {
                 val response = repository.getAllCities()
                 if (response.isSuccessful && response.body()!=null) {
-                    Log.e("data",response.errorBody().toString())
                     data.value = response.body()!!.data
                 } else {
                     error.value = "Error getting cities"
-                    Log.e("errordata",response.errorBody().toString())
                 }
             } catch (e: Exception) {
                 error.value = e.localizedMessage.toString()

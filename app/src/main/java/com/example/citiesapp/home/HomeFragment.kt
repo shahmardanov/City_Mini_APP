@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.airbnb.lottie.LottieAnimationView
 import com.example.citiesapp.adapter.CityAdapter
 import com.example.citiesapp.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -15,6 +16,7 @@ class HomeFragment : Fragment() {
 
     private val viewModel by viewModels<HomeViewModel>()
     private val cityAdapter = CityAdapter()
+    private lateinit var animationView: LottieAnimationView
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
@@ -38,7 +40,7 @@ class HomeFragment : Fragment() {
         }
     }
 
-     fun serAdapter() {
+    fun serAdapter() {
         binding.apply {
             rvHome.adapter = cityAdapter
         }
